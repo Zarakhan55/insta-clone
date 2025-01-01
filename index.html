@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Instagram Clone</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="mobile">
+            <div class="camera">
+                <ion-icon name="ellipse"></ion-icon>
+            </div>
+            <div class="topi">
+                <p>11:58 AM</p>
+                <p>2.5MB/s</p>
+                <p><ion-icon name="alarm"></ion-icon></p>
+                <p><ion-icon name="mail-unread-outline"></ion-icon></p>
+                <i><ion-icon name="battery-half-outline"></ion-icon></i>
+                <i><h6>-4G+</h6><ion-icon name="battery-half-outline"></ion-icon></i>
+            </div>
+            <div class="top2">
+                <a><ion-icon name="lock-closed-outline"></ion-icon></a>
+                <h2>she.codes</h2>
+                <i><ion-icon name="chevron-down-outline"></ion-icon></i>
+            </div>
+            <div class="top3">
+                <div class="profilepic">
+                    <img id="profileImage" src="profile.jfif" alt="Profile Picture">
+                </div>
+                <div class="followers">
+                    <a href="#" class="stat">50<br> Posts</a>
+                    <a href="#" class="stat">10k Followers</a>
+                    <a href="#" class="stat">50 Following</a>
+                </div>
+            </div>
+            <div class="bio">
+                <h6>she.codes</h6>
+                <p>Aspiring developer and tech enthusiast. Sharing my journey through code and creativity.</p>
+                <a href="https://zarakhan55.github.io/khancosmatic/" class="website">Visit my website</a>
+                <div class="edit" id="editProfile">
+                    <h5>Edit profile</h5>
+                </div>
+                <div id="editSection" style="display: none;">
+                    <input type="file" id="imageUpload" accept="image/*">
+                    <button id="saveProfile">Save</button>
+                </div>
+            </div>
+            <div class="highlights">
+                <div class="highlight">
+                    <img src="h1.jfif" alt="">
+                    <h6>Asp.net project</h6>
+                </div>
+                <div class="highlight">
+                    <img src="h2.jfif" alt="">
+                    <h6>Android project</h6>
+                </div>
+                <div class="highlight">
+                    <img src="h3.jfif" alt="">
+                    <h6>JavaScript project</h6>
+                </div>
+                <div class="highlight">
+                    <img src="h4.jfif" alt="">
+                    <h6>PHP project</h6>
+                </div>
+            </div>
+            <div class="posts">
+                <div class="post">
+                    <img src="p1.jfif" alt="Post 1">
+                </div>
+                <div class="post">
+                    <img src="p2.jfif" alt="Post 2">
+                </div>
+                <div class="post">
+                    <img src="h3.jfif" alt="Post 3">
+                </div>
+                <div class="post">
+                    <img src="h4.jfif" alt="Post 4">
+                </div>
+            </div>
+            <footer>
+                <ion-icon name="home-outline"></ion-icon>
+                <ion-icon name="search-outline"></ion-icon>
+                <ion-icon name="card-outline"></ion-icon>
+                <ion-icon name="heart-outline"></ion-icon>
+                <a><img src="h1.jfif" alt="Profile"></a>
+            </footer>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        // JavaScript functionality
+        const editButton = document.getElementById('editProfile');
+        const editSection = document.getElementById('editSection');
+        const profileImage = document.getElementById('profileImage');
+        const imageUpload = document.getElementById('imageUpload');
+        const saveProfile = document.getElementById('saveProfile');
+
+        // Toggle edit section
+        editButton.addEventListener('click', () => {
+            editSection.style.display = editSection.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Change profile picture
+        saveProfile.addEventListener('click', () => {
+            const file = imageUpload.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+                editSection.style.display = 'none'; // Hide edit section after saving
+            }
+        });
+    </script>
+</body>
+</html>
